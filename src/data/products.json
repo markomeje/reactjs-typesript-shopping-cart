@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "Book",
+        "price": 10,
+        "imageUrl": "/images/p1.jpg"
+    },
+
+    {
+        "id": 2,
+        "name": "Book",
+        "price": 24,
+        "imageUrl": "/images/p2.jpg"
+    },
+
+    {
+        "id": 3,
+        "name": "Book",
+        "price": 55,
+        "imageUrl": "/images/p3.jpg"
+    },
+
+    {
+        "id": 4,
+        "name": "Book",
+        "price": 61,
+        "imageUrl": "/images/p4.jpg"
+    },
+
+    {
+        "id": 5,
+        "name": "Book",
+        "price": 85,
+        "imageUrl": "/images/p5.jpg"
+    }
+]
