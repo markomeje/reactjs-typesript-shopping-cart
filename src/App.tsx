@@ -6,7 +6,7 @@ import { About } from './pages/About';
 import { Navbar } from './components/Navbar';
 import { CartProvider } from './contexts/CartContext';
 
-export function App() {
+export default function App() {
     return (
         <CartProvider>
             <Navbar />

@@ -12,6 +12,8 @@ type ProductProps = {
 export function Product({ id, price, name, imageUrl }: ProductProps) {
     const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useCart();
     const quantity = getItemQuantity(id);
+    // console.log(quantity);
+
     return (
         <Card className="h-100 bg-transparent border-0">
             <Card.Img variant="top" src={imageUrl} height="200px" style={{ objectFit: 'cover' }} />
