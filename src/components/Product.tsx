@@ -20,7 +20,9 @@ export function Product({ id, price, name, imageUrl }: ProductProps) {
             <Card.Body className="d-flex flex-column px-0">
                 <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
                     <span className="fs-4">{name}</span>
-                    <span className="ms-2 text-muted">{currency(price)}</span>
+                    <span className="ms-2 text-muted">
+                        { currency(price) }
+                    </span>
                 </Card.Title>
                 <div className="">
                     {quantity === 0 ? (
