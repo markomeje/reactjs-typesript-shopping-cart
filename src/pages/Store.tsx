@@ -4,9 +4,9 @@ import { Product } from '../components/Product';
 
 export function Store() {
     return (
-        <Row md="3" lg="4" sm="6" className="g-4">
+        <Row md="3" lg="4" sm="6" className="">
             {Products.map((product) => (
-                <Col key={product.id}>
+                <Col key={product.id} className="mb-2">
                     <Product {...product} />
                 </Col>
             ))}

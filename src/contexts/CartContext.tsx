@@ -7,60 +7,58 @@ type CartProps = {
     removeFromCart: (id: number) => void,
 }
 
-type ChildrenProps = {
-    children: ReactNode
+interface ChildrenProps {
+    children: ReactNode;
 }
 
 type CartItem = {
-    id: number,
+    id: number
     quantity: number
 }
 
 const CartContext = createContext({} as CartProps);
-export function useCart() {
+export function useShoppingCart() {
     return useContext(CartContext);
 }
 
 export function CartProvider({ children }: ChildrenProps) {
-    const [cartItems, setCartItems] = useState<CartItem>([]);
-
-    // console.log(cartItems, setCartItems);
+    const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
     function getItemQuantity(id: number) {
-        return cartItems.find((item) => item.id === id)?.quantity || 0;
+        return cartItems.find(item => item.id === id)?.quantity || 0;
     }
 
     function increaseCartQuantity(id: number) {
-        setCartItems((currentItems) => {
-            if(currentItems.find((item) => item.id === id) === null) {
-                return [...currentItems, {id, quantity: 1}];
-            } else {
-                return currentItems.map((item) => {
-                    if(item.id === id) {
-                        return {... item, quantity: item.quantity + 1}
+        setCartItems(currentItem => {
+            if(currentItem.find(item => item.id === id)) {
+                return currentItem.map(item => {
+                    if(item.id == id) {
+                        return {...item, quantity: item.quantity + 1}
                     }else {
                         return item;
                     }
                 });
-            });
-        }); 
+            } else {
+                return [...currentItem, { id, quantity: 1 }];
+            }
+        });
     }
 
     function decreaseCartQuantity(id: number) {
-        setCartItems((currentItems) => {
-            if(currentItems.find((item) => item.id === id)?.quantity === 1) {
-                return currentItems.filter((item) => item.id !== id);
+        setCartItems(currentItem => {
+            if(currentItem.find(item => item.id === id)?.quantity === 1) {
+                return currentItem.filter(item => item.id !== id);
             }else {
-                return currentItems.map((item) => {
-                    return item.id === id ? (item.quantity - 1) : item;
+                return currentItem.map(item => {
+                    return item.id === id ? {... item, quantity: item.quantity - 1} : item;
                 });
             }
         });
     }
 
     function removeFromCart(id: number) {
-        setCartItems((currentItems) => {
-            return currentItems.filter((item) => item.id !== id);
+        setCartItems(currentItem => {
+            return currentItem.filter(item => item.id !== id);
         });
     }
 
