@@ -1,11 +1,11 @@
-import Products from '../data/products.json';
+import products from '../data/products.json';
 import { Row, Col } from 'react-bootstrap';
 import { Product } from '../components/Product';
 
 export function Store() {
     return (
         <Row md="3" lg="4" sm="6" className="">
-            {Products.map((product) => (
+            {products.map((product) => (
                 <Col key={product.id} className="mb-2">
                     <Product {...product} />
                 </Col>
